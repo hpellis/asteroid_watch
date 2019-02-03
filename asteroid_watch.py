@@ -40,7 +40,7 @@ def result():
     endpoint = "https://api.nasa.gov/neo/rest/v1/feed/today?detailed=true&api_key=DEMO_KEY"
     response = requests.get(endpoint)
     data = response.json()
-    result = manage_result(data)
+    number_asteroids, asteroids_dict = manage_result(data)
     return render_template("result.html", title="Asteroid Check", **locals())
 
 

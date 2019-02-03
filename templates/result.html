@@ -1,12 +1,23 @@
 {% extends "layout.html" %}
+
 {% block content %}
 
 <h1> Asteroid Watch </h1>
 
-<p> There are {{number}} asteroids in near earth orbit today.</p>
+<p> There are {{number_asteroids}} asteroids in near earth orbit today.</p>
 
 <p> {{result}} </p>
 
 <p> {{ info }} </p>
+
+
+{% for key, value in asteroids_dict.items() %}
+
+<p>Asteroid {{key}} has a diameter of {{value[0]}} kilometers, speed of {{value[2]}} kilometers per hour and will miss earth by {{value[3]}} kilometers. </p>
+
+{% endfor %}
+
+
+
 
 {% endblock %}
