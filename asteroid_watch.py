@@ -16,8 +16,6 @@ def manage_result(data):
     asteroids_dict = {}
     date = datetime.datetime.today().strftime('%Y-%m-%d')
     
-    print(date)
-    
     for item in data['near_earth_objects'][date]:
         
         asteroid_name = item['name']
@@ -26,8 +24,16 @@ def manage_result(data):
         speed = item['close_approach_data'][0]['relative_velocity']['kilometers_per_hour']
         miss_distance = item['close_approach_data'][0]['miss_distance']['kilometers']
         asteroids_dict[asteroid_name] = diameter, hazardous, speed, miss_distance
+
+
+        
+    hazard_count = 0
     
-    return number_asteroids, asteroids_dict
+    for item in data['near_earth_objects'][date]:
+        if item ['is_potentially_hazardous_asteroid'] == True:
+            hazard_count += 1
+    
+    return number_asteroids, asteroids_dict, hazard_count
 
 
 @app.route("/")
@@ -40,7 +46,7 @@ def result():
     endpoint = "https://api.nasa.gov/neo/rest/v1/feed/today?detailed=true&api_key=DEMO_KEY"
     response = requests.get(endpoint)
     data = response.json()
-    number_asteroids, asteroids_dict = manage_result(data)
+    number_asteroids, asteroids_dict, hazard_count = manage_result(data)
     return render_template("result.html", title="Asteroid Check", **locals())
 
 

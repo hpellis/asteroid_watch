@@ -2,23 +2,39 @@
 
 {% block content %}
 
+<div class="main">
+
 <h1> Asteroid Watch </h1>
 
-<p id="headline"> There are {{number_asteroids}} asteroids in near earth orbit today.</p>
+{% if number_asteroids == 0 %}
+    <p id="headline"> There are no asteroids in the near earth orbit today.</p>
+{% endif %}
+
+{% if number_asteroids == 1 %}
+    <p id="headline"> There is 1 asteroids in the near earth orbit today.</p>
+{% endif %}
+
+{% if number_asteroids > 1 %}
+    <p id="headline"> There are {{number_asteroids}} asteroids in the near earth orbit today.</p>
+{% endif %}
+
+
+{% if hazard_count > 0 %}
+    <p class="hazard_count"> {{hazard_count}} of these asteroids are potentially hazardous.</p>
+{% endif %}
+
 
 {% for key, value in asteroids_dict.items() %}
-
     <p>Asteroid {{key}} has a diameter of {{value[0]}} kilometers, speed of {{value[2]}} kilometers per hour and will miss earth by {{value[3]}} kilometers. </p>
 
     {% if value[1] == True: %}
-        
-        <p> Asteroid {{key}} is potentially hazardous to earth. </p>
-
-    {% endif %}
+    
+    <p>Asteroid {{key}} is potentially hazardous to earth. </p>
+    
+    {% endif %}  
 
 {% endfor %}
 
-
-
+</div>
 
 {% endblock %}
