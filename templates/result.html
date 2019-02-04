@@ -34,6 +34,31 @@
 
 {% endfor %}
 
+
+
+</div class="container">
+
+<div class="container">
+
+<div class="row">
+
+{% for key, value in asteroids_dict.items() %}
+
+<div class="card", "col-sm-3">
+  <div class="card-body">
+    <h5 class="card-title">Asteroid {{key}}</h5>
+    <img class="card-img-top" src="{{url_for('static', filename = 'images/asteroid.png')}}" alt="Image of asteroid" max-width="50%"/>
+    <p class="card-text">Diameter: {{value[0]}} kilometers</p>
+    <p class="card-text">Speed: {{value[2]}} kilometers per hour</p>
+    <p class="card-text">{{key}} will miss earth by {{value[3]}} kilometers.</p>
+  </div>
+
+</div>
+
+{% endfor %}
+</div>
+</div>
+
 </div>
 
 {% endblock %}
