@@ -42,7 +42,7 @@ def index():
 
 @app.route("/result")
 def result():
-    endpoint = "https://api.nasa.gov/neo/rest/v1/feed/today?detailed=true&api_key=" + nasa_api
+    endpoint = "https://api.nasa.gov/neo/rest/v1/feed/today?detailed=true&api_key=" + config.nasa_api
     response = requests.get(endpoint)
     data = response.json()
     number_asteroids, asteroids_dict, hazard_count = manage_result(data)
