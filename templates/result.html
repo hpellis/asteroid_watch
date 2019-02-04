@@ -11,13 +11,12 @@
 {% endif %}
 
 {% if number_asteroids == 1 %}
-    <p id="headline"> There is 1 asteroids in the near earth orbit today.</p>
+    <p id="headline"> There is 1 asteroid in the near earth orbit today.</p>
 {% endif %}
 
 {% if number_asteroids > 1 %}
     <p id="headline"> There are {{number_asteroids}} asteroids in the near earth orbit today.</p>
 {% endif %}
-
 
 {% if hazard_count > 0 %}
     <p class="hazard_count"> {{hazard_count}} of these asteroids are potentially hazardous.</p>
@@ -29,7 +28,7 @@
 
     {% if value[1] == True: %}
     
-    <p>Asteroid {{key}} is potentially hazardous to earth. </p>
+    <p id="hazard">Asteroid {{key}} is potentially hazardous to earth. </p>
     
     {% endif %}  
 
