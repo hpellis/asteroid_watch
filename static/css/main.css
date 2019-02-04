@@ -3,40 +3,62 @@ h1 {
   font-size: 40px;
   font-family: helvetica;
   padding-top: 50px;
-  padding-left: 20px;
+  text-align: center;
+  padding-bottom: 20px;
 }
 
-p {
+#index {
+  text-align: center;
+}
+
+.main p {
   font-family: 'helvetica';
   font-size: 14px;
-}
-
-#headline {
-padding-bottom: 20px;
+  text-align: center;
 }
 
 .hazard_count {
-padding-bottom: 20px;
+    padding-bottom: 20px;
 }
 
-.main {
-max-width: 75%;
-margin-left: 50px;
+
+/*styling for cards*/
+.card {
+width: 23%;
 }
 
+h5 span {
+    display: block;
+}
 
 img {
-max-width: 50%;
-align: center;
-display: block;
-margin-left: auto;
-margin-right: auto;
+    max-width: 50%;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card-title {
-text-align: center;
+    text-align: center;
 }
 
 .card-text {
-text-align: center;
+    text-align: center;
+}
+
+#hazard {
+    background-color: #ffe2e2;
+}
+
+#hazard h5 {
+    color: #f40707;
+}
+
+.card-body {
+    padding: 10px;
+}
+
+#cards {
+padding-bottom: 50px;
 }
