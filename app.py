@@ -5,14 +5,13 @@ Created on Wed Jan 30 20:50:39 2019
 
 @author: harriet
 """
-import requests
-import datetime
 
 
 from flask import Flask, render_template
 app = Flask(__name__)
 
 def manage_result(data):
+    import datetime
     number_asteroids = data['element_count']
     asteroids_dict = {}
     date = datetime.datetime.today().strftime('%Y-%m-%d')
@@ -42,6 +41,7 @@ def index():
 
 @app.route("/result")
 def result():
+    import requests
     endpoint = "https://api.nasa.gov/neo/rest/v1/feed/today?detailed=true&api_key=WyVsafj4w6SQYVarw6xOzp54OwYtuVUhXA90AzSV"
     response = requests.get(endpoint)
     data = response.json()
