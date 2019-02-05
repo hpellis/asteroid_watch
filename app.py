@@ -7,7 +7,7 @@ Created on Wed Jan 30 20:50:39 2019
 """
 import requests
 import datetime
-import config
+
 
 from flask import Flask, render_template
 app = Flask(__name__)
@@ -42,7 +42,7 @@ def index():
 
 @app.route("/result")
 def result():
-    endpoint = "https://api.nasa.gov/neo/rest/v1/feed/today?detailed=true&api_key=" + config.nasa_api
+    endpoint = "https://api.nasa.gov/neo/rest/v1/feed/today?detailed=true&api_key=WyVsafj4w6SQYVarw6xOzp54OwYtuVUhXA90AzSV"
     response = requests.get(endpoint)
     data = response.json()
     number_asteroids, asteroids_dict, hazard_count = manage_result(data)
