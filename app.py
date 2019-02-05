@@ -45,7 +45,8 @@ def result():
     endpoint = "https://api.nasa.gov/neo/rest/v1/feed/today?detailed=true&api_key=WyVsafj4w6SQYVarw6xOzp54OwYtuVUhXA90AzSV"
     response = requests.get(endpoint)
     data = response.json()
-    number_asteroids, asteroids_dict, hazard_count = manage_result(data)
+    if response.status_code == 200:
+        number_asteroids, asteroids_dict, hazard_count = manage_result(data)
     return render_template("result.html", title="Asteroid Check", **locals())
 
 
