@@ -10,7 +10,7 @@ import datetime
 import config
 
 from flask import Flask, render_template
-app = Flask("MyApp")
+app = Flask(__name__)
 
 def manage_result(data):
     number_asteroids = data['element_count']
