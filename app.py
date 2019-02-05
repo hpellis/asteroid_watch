@@ -39,6 +39,11 @@ def index():
     return render_template("index.html", title="Asteroid Watch")
 
 
+@app.route("/hello")
+def hello():
+    return render_template("index.html", title="Asteroid Watch")
+
+
 @app.route("/result")
 def result():
     import requests
